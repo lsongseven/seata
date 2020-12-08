@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 public class DruidDbTypeParserTest {
     @Test
     public void testDruidDbTypeParserLoading() {
-        String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/seata";
+        String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/seata_demo";
         DruidDelegatingDbTypeParser dbTypeParser = (DruidDelegatingDbTypeParser) EnhancedServiceLoader.load(DbTypeParser.class, SqlParserType.SQL_PARSER_TYPE_DRUID);
         Assertions.assertNotNull(dbTypeParser);
         Assertions.assertEquals(DruidDelegatingDbTypeParser.class, dbTypeParser.getClass());

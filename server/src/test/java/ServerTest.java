@@ -42,6 +42,7 @@ public class ServerTest {
     public static void main(String[] args) {
 
         NettyRemotingServer nettyServer = new NettyRemotingServer(workingThreads);
+        nettyServer.setListenPort(8091);
         nettyServer.setHandler(new DefaultCoordinator(nettyServer));
         UUIDGenerator.init(1L);
         XID.setIpAddress(NetUtil.getLocalIp());

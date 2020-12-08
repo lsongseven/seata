@@ -14,7 +14,11 @@
  *  limitations under the License.
  */
 import io.seata.common.ApplicationKeeper;
+import io.seata.common.loader.EnhancedServiceLoader;
 import io.seata.rm.RMClient;
+import io.seata.sqlparser.SqlParserType;
+import io.seata.sqlparser.druid.DruidDelegatingDbTypeParser;
+import io.seata.sqlparser.util.DbTypeParser;
 import io.seata.tm.TMClient;
 import io.seata.tm.api.TransactionalExecutor;
 import io.seata.tm.api.TransactionalTemplate;
@@ -69,7 +73,8 @@ public class AppTest {
                     }
                     jdbcTemplate.update("update user0 set name = 'xxx' where id = ?", new Object[]{1});
                     jdbcTemplate.update("insert into user1 (id, name, gmt) values (1, 'user1', '2019-01-01')");
-                    throw bizException;
+                    return null;
+//                    throw bizException;
                 }
 
                 @Override
